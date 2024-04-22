@@ -1,26 +1,16 @@
-import React, { useState } from 'react'
-import { CartItem } from '../model/types'
+import { useState } from 'react'
 import { useCart } from '../../hooks/use-cart'
 import { toast } from 'sonner'
 import { FaShoppingCart } from 'react-icons/fa'
 
-interface Props {
-  cart: CartItem[]
-}
-
-const Header: React.FC<Props> = () => {
+const Header = () => {
   const { items: cart, clearCart } = useCart()
-  console.log(cart)
   const [isCartOpen, setIsCartOpen] = useState(false)
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen)
   }
 
-  const getSizeLabel = (
-    productId: number,
-    selectedSizeId: number | null,
-    quantity: number
-  ) => {
+  const getSizeLabel = (productId: number, selectedSizeId: number | null) => {
     const product = cart.find((item) => item.product.id === productId)?.product
     if (product && selectedSizeId !== null) {
       const size = product.sizeOptions.find(
@@ -33,15 +23,12 @@ const Header: React.FC<Props> = () => {
   return (
     <div className="header">
       <div>
-        <button
-          className="cart-btn"
-          style={{
-            borderBottom: isCartOpen ? '1px solid white' : 'none',
-          }}
-          onClick={toggleCart}
-        >
+        <button className="cart-btn" onClick={toggleCart}>
           <span className="icon">
-            <FaShoppingCart />
+            <FaShoppingCart />{' '}
+            <span className="icon-label">
+              ({cart.reduce((a, b) => a + b.quantity, 0)})
+            </span>
           </span>
           <span className="label">
             My cart ({cart.reduce((a, b) => a + b.quantity, 0)})
@@ -71,11 +58,7 @@ const Header: React.FC<Props> = () => {
                     <p className="cart-size">
                       <span>Size:</span>
                       <span className="">
-                        {getSizeLabel(
-                          item.product.id,
-                          item.selectedSize,
-                          item.quantity
-                        )}
+                        {getSizeLabel(item.product.id, item.selectedSize)}
                       </span>
                     </p>
                   </div>
@@ -86,7 +69,7 @@ const Header: React.FC<Props> = () => {
                 <button
                   className="clear-btn"
                   onClick={() =>
-                    toast('Do you really want to remove your items?', {
+                    toast('Do you really want to delete your items?', {
                       action: {
                         label: 'Delete',
                         onClick: () => {

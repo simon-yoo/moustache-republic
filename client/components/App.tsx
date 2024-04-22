@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './Header'
-import { Product, CartItem } from '../model/types'
+import { Product } from '../model/types'
 import { Toaster, toast } from 'sonner'
 import { useCart } from '../../hooks/use-cart'
 
-const ProductDetails: React.FC = () => {
+const ProductDetails = () => {
   const [product, setProduct] = useState<Product | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [selectedSize, setSelectedSize] = useState<number | null>(null)
@@ -62,7 +62,6 @@ const ProductDetails: React.FC = () => {
           }
           return item
         })
-        console.log(updatedCart)
         addItem(updatedCart)
       } else {
         addItem([...cart, { product, selectedSize, quantity: 1 }])
@@ -81,7 +80,7 @@ const ProductDetails: React.FC = () => {
   return (
     <div>
       <Toaster richColors closeButton expand={true} position="top-center" />
-      <Header cart={cart} />
+      <Header />
       <div className="main-container">
         <div className="img-container">
           <img

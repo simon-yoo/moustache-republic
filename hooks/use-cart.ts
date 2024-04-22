@@ -1,9 +1,10 @@
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
-import { Product, CartItem } from '../client/model/types'
+import { CartItem } from '../client/model/types'
 
 //Add items
 //Keep track of cart items
+//Remove all items
 
 type CartState = {
   items: CartItem[]

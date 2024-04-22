@@ -35,8 +35,8 @@ h1 {
 }
 .cart-box {
   position: absolute;
-  top: 55px;
-  right: 100px;
+  top: 35px;
+  right: 125px;
   border: 1px solid black;
   padding: 2rem;
   background-color: white;
@@ -44,7 +44,16 @@ h1 {
 }
 
 .label {
-  font-size: small;
+  font-size: 14px;
+}
+
+.icon-label {
+  font-size: 14px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
 }
 
 .cart-btn {
@@ -52,7 +61,6 @@ h1 {
   background-color: #f6f6f7;
   text-transform: uppercase;
   border: none;
-  z-index: 1000;
   padding: 5px 10px;
 }
 
@@ -94,7 +102,6 @@ img {
   flex-direction: column;
   align-items: start;
   justify-content: start;
-  /* padding: 0 20px; */
   max-width: 500px;
   flex-basis: 40%;
 }
@@ -125,6 +132,8 @@ img {
   display: flex;
   text-transform: uppercase;
   color: #888888;
+  margin-bottom: 1rem;
+  font-size: 14px;
 }
 
 .star {
@@ -226,13 +235,6 @@ img {
 }
 
 @media screen and (max-width: 1000px) {
-  .cart-btn .icon {
-    display: inline-block;
-    font-size: 1.3rem;
-  }
-  .cart-btn .label {
-    display: none;
-  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -244,7 +246,7 @@ img {
   }
 
   .product-container {
-    margin-bottom: 1rem;
+    margin: 1rem 0;
   }
 
   .header {
@@ -252,12 +254,21 @@ img {
     margin: 1rem 0;
   }
   .cart-box {
-    right: 2.5rem;
+    top: 40px;
+    right: 40px;
   }
 
   .cart-desc p,
   .cart-desc span {
     font-size: 0.8rem;
+  }
+
+  .cart-btn .icon {
+    display: inline-block;
+    font-size: 1.2rem;
+  }
+  .cart-btn .label {
+    display: none;
   }
 }
 
@@ -265,6 +276,14 @@ img {
   .cart-box {
     left: 3rem;
     min-width: 250px;
+  }
+
+  .cart-btn .icon {
+    font-size: 15px;
+  }
+
+  .cart-btn .icon-label {
+    font-size: 14px;
   }
 }
 
