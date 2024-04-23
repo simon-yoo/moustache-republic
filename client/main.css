@@ -58,7 +58,7 @@ h1 {
 .cart-btn {
   color: #888888;
   background-color: #f6f6f7;
-  text-transform: uppercase;
+
   border: none;
   padding: 5px 10px;
 }
@@ -83,10 +83,10 @@ h1 {
 }
 
 .img-container {
-  flex: 1;
   display: flex;
   justify-content: center;
-  max-width: 600px;
+  flex-basis: 40%;
+  max-height: 600px;
 }
 
 img {
@@ -95,12 +95,12 @@ img {
 }
 
 .product-container {
-  flex: 1;
+  flex-basis: 40%;
   display: flex;
   flex-direction: column;
   align-items: start;
-  margin-right: 6rem;
-  max-width: 600px;
+  padding-right: 6rem;
+  max-height: 600px;
 }
 
 .product-title {
@@ -176,6 +176,8 @@ img {
   border: 2px solid #222222;
   margin-top: 1rem;
   transition-duration: 0.2s;
+  text-transform: uppercase;
+  background-color: white;
 }
 
 .add-cart:hover {

@@ -31,7 +31,7 @@ const Header = () => {
             </span>
           </span>
           <span className="label">
-            My cart ({cart.reduce((a, b) => a + b.quantity, 0)})
+            My Cart ({cart.reduce((a, b) => a + b.quantity, 0)})
           </span>{' '}
         </button>
       </div>
